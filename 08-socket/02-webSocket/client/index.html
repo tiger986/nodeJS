@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="wsClient.js"></script>
+</head>
+<body>
+    <h1>交流社区</h1>
+    <div id="content" name="name" style="width: 400px;height: 300px;border: 1px #000000 solid;overflow-y: auto"></div>
+    <br />
+    <div>
+        <input type="text" name="" id="msg" style="width: 200px">
+    </div>
+    <button id="submit">提交</button>
+
+    <script>
+        document.querySelector('#submit').addEventListener('click', function(){
+            var msg = document.getElementById('msg')
+            var data = msg.value
+            ws.send(data)
+            msg.value = ''
+        }, false)
+    </script>
+</body>
+</html>

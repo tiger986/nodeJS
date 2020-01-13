@@ -1,0 +1,40 @@
+{
+  "name": "06-npm-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node app.js",
+    "single": "node_modules/.bin/nodemon",
+    "all": "nodemon *.js",
+    "r": "gulp --port 8000",
+    "r2": "node app.js&node app2.js",
+    "r3": "node app.js&&node app2.js",
+    "posttest": "echo posttest",
+    "test": "echo test",
+    "pretest": "echo pretest",
+    "t1": "node server.js",
+    "t2": "node server.js",
+    "t3": "node server.js",
+    "s1": "echo $npm_package_file1_0",
+    "s2": "echo $npm_package_file2_a"
+  },
+  "file1": [
+    "file1.0.txt",
+    "file1.1.txt",
+    "file1.2.txt"
+  ],
+  "file2": {
+    "a": "aa",
+    "b": "bb"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-webserver": "^0.9.1",
+    "nodemon": "^1.19.4"
+  },
+  "dependencies": {}
+}

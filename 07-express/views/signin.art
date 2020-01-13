@@ -1,0 +1,6 @@
+{
+    "ret": true,
+    "errmsg": "",
+    "data": "{{aaa}}{{abc}}{{efg.hhh}}",
+    "abc": "{{abc}}"
+}

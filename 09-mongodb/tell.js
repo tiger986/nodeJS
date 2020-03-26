@@ -52,14 +52,14 @@
 //db.collectionName(集合名).findOne({任意键名:'值',……})  查询集合中符合条件的第一条document
 //db.collectionName(集合名).find({任意键名:'值',……})  查询集合中符合条件的所有document
 //db.collectionName(集合名).find()  查询集合中所有document
-//db.collectionName(集合名).find(age:{$gt:22})  查询 age > 22 的document
-//db.collectionName(集合名).find(age:{$lt:22})  查询 age < 22 的document
-//db.collectionName(集合名).find(age:{$gte:22})  查询 age >= 22 的document
-//db.collectionName(集合名).find(age:{$lte:22})  查询 age <= 22 的document
-//db.collectionName(集合名).find(age:{$gt:22,$lt:26})  查询 age > 22且age < 26 的document
-//db.collectionName(集合名).find(age:{$gt:22,$lte:26})  查询 age > 22且age <= 26 的document
-//db.collectionName(集合名).find({name:/'ga'/}) 查询name中包含ga的document
-//db.collectionName(集合名).find({name:/'^ga'/}) 查询name中以ga开头的document
+//db.collectionName(集合名).find({age:{$gt:22}})  查询 age > 22 的document
+//db.collectionName(集合名).find({age:{$lt:22}})  查询 age < 22 的document
+//db.collectionName(集合名).find({age:{$gte:22}})  查询 age >= 22 的document
+//db.collectionName(集合名).find({age:{$lte:22}})  查询 age <= 22 的document
+//db.collectionName(集合名).find({age:{$gt:22,$lt:26}})  查询 age > 22且age < 26 的document
+//db.collectionName(集合名).find({age:{$gt:22,$lte:26}})  查询 age > 22且age <= 26 的document
+//db.collectionName(集合名).find({name:/ga/}) 查询name中包含ga的document
+//db.collectionName(集合名).find({name:/^ga/}) 查询name中以ga开头的document
 //db.collectionName(集合名).find({},{name:1})  查询指定列name的所有数据，可指定多个列db.collectionName(集合名).find({},{name:1,age:1,……})
 //db.collectionName(集合名).find({条件},{name:1})  查询符合条件的指定列name的数据,可指定多个列（条件：一个或多个键值对、数字键值的范围、键值包含什么或以什么开头等）
 //db.collectionName(集合名).find({},{name:0})  查询除了指定列name的所有数据，可指定多个列db.collectionName(集合名).find({},{name:0,age:0,……})
@@ -79,4 +79,9 @@
 //db.collectionName(集合名).find({条件}).count()  查询集合中符合条件的document的数量
 //db.collectionName(集合名).distinct('任意键') 查询对任意键的值进行去重后的所有值
 
- 
+//10.各命令可以链式操作
+//db.top10.find({time:{$gt:'2000',$lt:'2010'}},{'name':1,_id:0,time:1}).sort({time:-1}).limit(2).skip(1).count()
+
+//11.limit与skip同时用时其位置无影响，sort位置不管在哪都优先执行
+/*db.top10.find({time:{$gt:'2000',$lt:'2010'}},{'name':1,_id:0,time:1}).sort({time:-1}).limit(2).skip(1) 与
+  db.top10.find({time:{$gt:'2000',$lt:'2010'}},{'name':1,_id:0,time:1}).skip(1).limit(2).sort({time:-1}) 查询出的结果一致*/

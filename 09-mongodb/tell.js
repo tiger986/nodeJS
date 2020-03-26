@@ -85,3 +85,5 @@
 //11.limit与skip同时用时其位置无影响，sort位置不管在哪都优先执行
 /*db.top10.find({time:{$gt:'2000',$lt:'2010'}},{'name':1,_id:0,time:1}).sort({time:-1}).limit(2).skip(1) 与
   db.top10.find({time:{$gt:'2000',$lt:'2010'}},{'name':1,_id:0,time:1}).skip(1).limit(2).sort({time:-1}) 查询出的结果一致*/
+
+//展示
